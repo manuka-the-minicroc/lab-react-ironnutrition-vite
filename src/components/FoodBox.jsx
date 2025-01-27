@@ -1,16 +1,19 @@
+import "./FoodBox.css";
 
-function FoodBox(props) {
+function FoodBox({food, deleteFood}) {
+    const {id, name, image, calories, servings} = food;
+    
     return (
-        <div>
-            <p> {props.food.name} </p>
-            <img src= {props.food.image}/>
+        <div className = "food-card">
+            <p> {name} </p>
+            <img src= {image}/>
             
-            <p>Calories: {props.food.calories} </p>
-            <p>Servings {props.food.servings}</p>
+            <p>Calories: {calories} </p>
+            <p>Servings {servings}</p>
             <p>
-                <b>Total Calories: {props.food.servings} * {props.food.calories} </b> kcal
+                <b>Total Calories: {servings} * {calories} </b> kcal
                 </p>
-            <button>Delete</button>
+            <button onClick={() => deleteFood(id)}>Delete</button>
         </div>
     )
 }
